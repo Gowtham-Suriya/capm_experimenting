@@ -1,0 +1,23 @@
+GET http://localhost:4004/odata/v4/first-srv/BookSet
+
+###
+GET http://localhost:4004/odata/v4/first-srv/Books?$filter=ID eq 1
+
+###
+POST http://localhost:4004/odata/v4/first-srv/BookSet
+Content-Type: application/json
+
+{
+  "title": "New Book",
+  "author": "John Doe",
+  "price": 19.99
+}
+
+###
+
+POST http://localhost:4004/odata/v4/first-srv/increasePrice
+Content-Type: application/json  
+
+{
+  "percentage": 10
+}
