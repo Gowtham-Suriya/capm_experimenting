@@ -6,8 +6,18 @@
     {
       "name": "uaa.user",
       "description": "UAA"
+    },
+    {
+      "name": "$XSAPPNAME.Admin",
+      "description": "Admin role for capproject application"
+    },
+    {
+      "name": "$XSAPPNAME.Kids",
+      "description": "Kids role for capproject application"
     }
+
   ],
+
   "role-templates": [
     {
       "name": "Token_Exchange",
@@ -15,6 +25,22 @@
       "scope-references": [
         "uaa.user"
       ]
+    },
+    {
+      "name": "Admin",
+      "description": "Admin role for capproject application",
+      "scope-references": [
+        "$XSAPPNAME.Admin"
+      ]
+    },
+    {
+      "name": "Kids",
+      "description": "Kids role for capproject application",
+      "scope-references": [
+        "$XSAPPNAME.Kids"
+      ]
     }
-  ]
+  ],
+
+  "attribute": { "name": "booksAgeGroup", "description": "Age group for books", "valueType": "s",  "valueRequired": false }
 }

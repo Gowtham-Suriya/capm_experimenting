@@ -1,7 +1,15 @@
 using { my.bookshop as bookshop } from '../db/schema';
 
-service FirstSrv {
-    entity BookSet as projection on bookshop.Books;
+service FirstSrv @(requires: 'authenticated-user') {
+
+    entity BookSet 
+    @(
+        restrict: [
+            { grant: ['READ', 'WRITE'], to : 'Admin'},
+            { grant: ['READ'], to : 'Kids', where: 'booksAgeGroup=$user.booksAgeGroup' }
+        ]
+    )
+    as projection on bookshop.Books;
 
     action increasePrice(percentage : Integer);
 }

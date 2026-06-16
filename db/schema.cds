@@ -1,6 +1,12 @@
 using { managed, Language } from '@sap/cds/common';
 namespace my.bookshop;
 
+type BooksAgeGroup : String enum {
+    Kids = 'Kids';
+    Adults = 'Adults' ;
+}
+
+
 entity Books : managed {
     @title : 'Book Identifier'
     // @Common : { Label: 'Book Id' }
@@ -17,6 +23,8 @@ entity Books : managed {
     price : Decimal(9,2);
 
     language : Language;
+
+    booksAgeGroup: BooksAgeGroup;
 }
 
 

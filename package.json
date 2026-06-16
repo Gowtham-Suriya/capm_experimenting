@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "dependencies": {
     "@cap-js/hana": "^2",
-    "@sap/cds": "^9"
+    "@sap/cds": "^9",
+    "@sap/xssec": "^4"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^2.4",
@@ -23,7 +24,32 @@
   "cds": {
     "requires": {
       "[production]": {
-        "db": "hana"
+        "db": "hana",
+        "auth": "xsuaa"
+      },
+
+      "[development]": {
+        "auth": {
+          "kind": "mocked",
+          "users": {
+            "gowtham": {
+              "password": "gowtham",
+              "roles": [
+                "Admin"
+              ]
+            },
+
+            "suriya": {
+              "password": "suriya",
+              "roles": [
+                "Kids"
+              ],
+              "attr": {
+                "booksAgeGroup": "Kids"
+              }
+            }
+          }
+        }
       }
     }
   },

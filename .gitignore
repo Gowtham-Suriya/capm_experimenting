@@ -17,3 +17,10 @@ mta_archives/
 
 # @cap-js/cds-typer
 @cds-models
+
+
+app/*/dist/
+# Generated CAP artifacts
+gen/
+resources/
+mta_archives/
